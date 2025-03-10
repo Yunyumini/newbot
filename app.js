@@ -32,7 +32,15 @@ function personalityProcessor(content) {
           userInput.value = '';
           return;
       }
-  
+            if(userInput.value.trim() === '我是刘林'){
+        currentMode = currentMode === 'default' ? 'psychology' : 'default';
+          const modeMessage = document.createElement('div');
+          modeMessage.className = 'message system-message';
+        modeMessage.textContent = `666`;
+        chatBox.appendChild(modeMessage);
+        userInput.value = '';
+        return;
+      }
       // 添加用户消息
       const userMessage = document.createElement('div');
       userMessage.className = 'message user-message';
