@@ -27,6 +27,7 @@ body {
     margin: 10px 0;
     padding: 12px 16px;
     border-radius: 18px;
+    width: fit-content;
     max-width: 70%;
 }
 
@@ -63,7 +64,7 @@ body {
 #userInput {
     flex: 1;
     padding: 12px;
-    border: 1px solid #e8e8e8;
+    border: 2px solid #e8e8e8;
     border-radius: 8px;
     font-size: 14px;
 }
@@ -80,4 +81,78 @@ button {
 
 button:hover {
     background: #0063cc;
+}
+
+/* 新增渐变背景 */
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* 增强消息气泡效果 */
+.message {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.message:not(.user-message) {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* 输入框动效 */
+#userInput {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#userInput:focus {
+  border-color: #007AFF;
+  box-shadow: 0 0 8px rgba(0,122,255,0.2);
+}
+
+/* 加载动画 */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.loading-dots::after {
+  content: '.';
+  animation: dot-pulse 1.5s infinite;
+}
+
+.loading-dots::before {
+  content: '.';
+  animation: dot-pulse 1.5s 0.5s infinite;
+}
+
+.dot-text {
+    display: inline-flex;
+    align-items: center;
+    will-change: transform; 
+}
+
+.dot {
+    width: 0.6em; 
+    height: 0.6em; 
+    margin-right: 0.2em; 
+    margin-left: 0.3em;
+    color: rgb(112, 223, 112);
+}
+
+.live{
+    margin-left: 2%;
+    font-size: 0.9em;
 }
