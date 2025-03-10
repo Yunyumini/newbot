@@ -9,8 +9,8 @@ function personalityProcessor(content, input) {
   };
 
   const randomQuips = [
-    () => `（突然正经）检测到重要信息：${content}...（小声）这数据靠谱吗？`,
-    () => `（扫地机器人音效）路径规划中...哎呀迷路啦！\n${content}`
+    () => `检测到重要信息：${content}...`,
+    () => `\n${content}`
   ];
 
   for (const [key, val] of Object.entries(triggers)) {
@@ -39,7 +39,7 @@ async function sendMessage() {
     const startTime = Date.now();
 const timeDisplay = document.createElement('span');
 timeDisplay.className = 'timestamp';
-tempAiMessage.innerHTML = `思考中...`;
+tempAiMessage.innerHTML = `对方正在输入中...`;
 const timerId = setInterval(() => {
     const duration = Math.floor((Date.now() - startTime) / 1000);
     timeDisplay.textContent = `(${duration}秒)`;
